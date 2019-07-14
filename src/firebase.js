@@ -8,9 +8,8 @@ import "firebase/storage";
 /*<!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->*/
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
+// Your web app's Firebase configuration
+  var config = {
     apiKey: "AIzaSyCsOHr1Y2l35wSYt_Zg8vE7inO_9O30p1c",
     authDomain: "bearchat-app.firebaseapp.com",
     databaseURL: "https://bearchat-app.firebaseio.com",
@@ -20,7 +19,6 @@ import "firebase/storage";
     appId: "1:465344246644:web:4622decaba1f840b"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
+  firebase.initializeApp(config);
 
 export default firebase;
