@@ -1,15 +1,13 @@
 import React from "react";
 import firebase from "../../firebase";
-import {
-  Grid,
+/*import {
   Form,
-  Segment,
-  Button,
-  Header,
-  Message,
-  Icon
-} from "semantic-ui-react";
+  Card,
+} from "semantic-ui-react";*/
+import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact";
 import { Link } from "react-router-dom";
+
+import FooterPart from './FooterPart';
 
 class Login extends React.Component {
   state = {
@@ -58,60 +56,110 @@ class Login extends React.Component {
     const { email, password, errors, loading } = this.state;
 
     return (
-      <Grid textAlign="center" verticalAlign="middle" className="app">
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h1" icon color="violet" textAlign="center">
-            <Icon name="lock" color="violet" />
-            Login to DevChat
-          </Header>
-          <Form onSubmit={this.handleSubmit} size="large">
-            <Segment stacked>
-              <Form.Input
-                fluid
-                name="email"
-                icon="mail"
-                iconPosition="left"
-                placeholder="Email Address"
-                onChange={this.handleChange}
-                value={email}
-                className={this.handleInputError(errors, "email")}
-                type="email"
-              />
+      <div>
+        <div className="login-page-desk">
+          <MDBCard className="login-card">
+            <MDBCardBody>
+              <h2>BearChat</h2>
+                <p style={{ color: '#A9A9A9'}}>Speak with the bears!</p>
+                <form
+                  className="needs-validation"
+                  onSubmit={this.handleSubmit}
+                >
+                  <div className="login-field">
+                    <input
+                      name="email"
+                      placeholder="Email Address"
+                      onChange={this.handleChange}
+                      value={email}
+                      className={this.handleInputError(errors, "email")}
+                      type="email"
+                      spellCheck="false"
+                    />
+                  </div>
 
-              <Form.Input
-                fluid
-                name="password"
-                icon="lock"
-                iconPosition="left"
-                placeholder="Password"
-                onChange={this.handleChange}
-                value={password}
-                className={this.handleInputError(errors, "password")}
-                type="password"
-              />
+                  <div className="login-field">
+                    <input
+                      name="password"
+                      placeholder="Password"
+                      onChange={this.handleChange}
+                      value={password}
+                      className={this.handleInputError(errors, "password")}
+                      type="password"
+                      spellCheck="false"
+                    />
+                  </div>
+                  <MDBBtn
+                    className="login-btn"
+                    color="dark"
+                    type="submit"
+                    //disabled={loading}
+                    //className={loading ? "loading" : "login-btn"}
+                    >
+                    Login
+                  </MDBBtn>      
+                </form>
+                <hr/>
+                <p>Don't have an account? <Link to="/register">Register</Link></p>
+                {errors.length > 0 && (
+                  <div>
+                    <h3 className="loginError">Oh no!</h3>
+                    {this.displayErrors(errors)}
+                  </div>
+                )}
+              </MDBCardBody>
+            </MDBCard>
+          </div>
+          <div className="login-page-mobile">
+            <h2>BearChat</h2>
+            <p style={{ color: '#A9A9A9'}}>Speak with the bears!</p>
+            <form
+              className="needs-validation"
+              onSubmit={this.handleSubmit}
+            >
+              <div className="login-field">
+                <input
+                  name="email"
+                  placeholder="Email Address"
+                  onChange={this.handleChange}
+                  value={email}
+                  className={"form-control" + this.handleInputError(errors, "email")}
+                  type="email"
+                  spellCheck="false"
+                />
+              </div>
 
-              <Button
-                disabled={loading}
-                className={loading ? "loading" : ""}
-                color="violet"
-                fluid
-                size="large"
-              >
-                Submit
-              </Button>
-            </Segment>
-          </Form>
-          {errors.length > 0 && (
-            <Message error>
-              <h3>Error</h3>
-              {this.displayErrors(errors)}
-            </Message>
-          )}
-          <Message>
-            Don't have an account? <Link to="/register">Register</Link>
-          </Message>
-        </Grid.Column>
-      </Grid>
+              <div className="login-field">
+                <input
+                  name="password"
+                  placeholder="Password"
+                  onChange={this.handleChange}
+                  value={password}
+                  className={"form-control" + this.handleInputError(errors, "password")}
+                  type="password"
+                  spellCheck="false"
+                />
+              </div>
+              <MDBBtn
+                color="dark"
+                type="submit"
+                className="login-btn"
+                /*disabled={loading}
+                className={loading ? "loading" : "login-btn"}*/
+                >
+                Login
+              </MDBBtn>      
+            </form>
+            <p>Don't have an account? <Link to="/register">Register</Link></p>
+            {errors.length > 0 && (
+              <div>
+                <h3 className="loginError">Oh no!</h3>
+                {this.displayErrors(errors)}
+              </div>
+            )}
+          </div>
+          <FooterPart/>
+        </div>
     );
   }
 }

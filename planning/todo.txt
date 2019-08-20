@@ -1,0 +1,33 @@
+TODO on website:
+-Responsive
+-Prevent users from trying to add too large images. modal or error message
+-Fix icon issue
+-profile page
+-other users profile page (on clicking names)
+-add function to see fullscreen image on clicking images in chat
+-add function to edit or remove messages?
+-Add option for users to edit their values
+-Add more options to personalize? user. Name, lastname, etc
+-Solve problem with emojis not appearing the way they show in emoji-mart
+-Fix "Upload modal"
+-Look in to uploading gifs in chat
+-Look in to uploading videos in chat
+-Look in to adding clickable links in chat
+-Look in to linking youtube etc videos in chat
+-Look in to adding larger images, or to resize images on upload
+-Look in to spinner
+-Look in to forgot password, seems to be a function integrated in firebase
+-Add specific theme to webpage
+-Make it possible to add second, third.. row to a message
+-Make it possible for the creator of a channel to remove that channel.
+-encrypt webadress
+-add animations
+-loading content animations
+-drag n drop file instead of simple input
+
+-Add a youtube link button (like for images). Iframe. https://mdbootstrap.com/docs/react/modals/basic/
+
+
+ADVANCED
+-comment messages
+-add emoji to messages

@@ -1,16 +1,12 @@
 import React from "react";
 import firebase from "../../firebase";
 import md5 from "md5";
-import {
-  Grid,
-  Form,
-  Segment,
-  Button,
-  Header,
-  Message,
-  Icon
-} from "semantic-ui-react";
+
+
+import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact";
 import { Link } from "react-router-dom";
+
+import FooterPart from './FooterPart';
 
 class Register extends React.Component {
   state = {
@@ -28,7 +24,7 @@ class Register extends React.Component {
     let error;
 
     if (this.isFormEmpty(this.state)) {
-      error = { message: "Fill in all fields" };
+      error = { message: "Seems you didn't fill in all the fields" };
       this.setState({ errors: errors.concat(error) });
       return false;
     } else if (!this.isPasswordValid(this.state)) {
@@ -129,83 +125,161 @@ class Register extends React.Component {
     } = this.state;
 
     return (
-      <Grid textAlign="center" verticalAlign="middle" className="app">
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h1" icon color="orange" textAlign="center">
-            <Icon name="lock" color="orange" />
-            Register for DevChat
-          </Header>
-          <Form onSubmit={this.handleSubmit} size="large">
-            <Segment stacked>
-              <Form.Input
-                fluid
-                name="username"
-                icon="user"
-                iconPosition="left"
-                placeholder="Username"
-                onChange={this.handleChange}
-                value={username}
-                type="text"
-              />
+      <div>
+        <div className="login-page-desk">
+          <MDBCard className="register-card">
+          <MDBCardBody>
+            <h2>BearChat</h2>
+              <p style={{ color: '#A9A9A9'}}>Speak with the bears!</p>
+                <form
+                  className="needs-validation"
+                  onSubmit={this.handleSubmit}
+                >
+                  <div className="login-field">
+                    <input
+                      name="username"
+                      placeholder="Username"
+                      onChange={this.handleChange}
+                      value={username}
+                      type="text"
+                      spellCheck="false"
+                    />
+                  </div>
 
-              <Form.Input
-                fluid
+                  <div className="login-field">
+                  <input
+                    name="email"
+                    placeholder="Email Address"
+                    onChange={this.handleChange}
+                    value={email}
+                    className={this.handleInputError(errors, "email")}
+                    type="email"
+                    spellCheck="false"
+                  />
+                  </div>
+
+                  <div className="login-field">
+                  <input
+                    name="password"
+                    placeholder="Password"
+                    onChange={this.handleChange}
+                    value={password}
+                    className={this.handleInputError(errors, "password")}
+                    type="password"
+                    spellCheck="false"
+                  />
+                  </div>
+
+                  <div className="login-field">
+                  <input
+                    name="passwordConfirmation"
+                    placeholder="Password Confirmation"
+                    onChange={this.handleChange}
+                    value={passwordConfirmation}
+                    className={this.handleInputError(errors, "password")}
+                    type="password"
+                    spellCheck="false"
+                  />
+                  </div>
+
+                  <MDBBtn
+                  color="dark"
+                  type="submit" 
+                  className="login-btn"
+                  //disabled={loading}
+                  //className={loading ? "loading" : "login-btn"}
+                  >
+                  Register
+                </MDBBtn> 
+              </form>
+              <hr/>
+              <p>Already a user? <Link to="/login">Login</Link></p>
+              
+              {errors.length > 0 && (
+                <div className="loginError">
+                  <hr/>
+                  <h3>Oh no!</h3>
+                  {this.displayErrors(errors)}
+                </div>
+              )}
+            </MDBCardBody>
+          </MDBCard>
+          
+          
+        </div>
+        <div className="login-page-mobile">
+            <h2>BearChat</h2>
+            <p style={{ color: '#A9A9A9'}}>Speak with the bears!</p>
+            <form
+              className="needs-validation"
+              onSubmit={this.handleSubmit}
+            >
+              <div className="login-field">
+                <input
+                  name="username"
+                  placeholder="Username"
+                  onChange={this.handleChange}
+                  value={username}
+                  type="text"
+                  spellCheck="false"
+                />
+              </div>
+
+              <div className="login-field">
+              <input
                 name="email"
-                icon="mail"
-                iconPosition="left"
                 placeholder="Email Address"
                 onChange={this.handleChange}
                 value={email}
                 className={this.handleInputError(errors, "email")}
                 type="email"
+                spellCheck="false"
               />
+              </div>
 
-              <Form.Input
-                fluid
+              <div className="login-field">
+              <input
                 name="password"
-                icon="lock"
-                iconPosition="left"
                 placeholder="Password"
                 onChange={this.handleChange}
                 value={password}
                 className={this.handleInputError(errors, "password")}
                 type="password"
+                spellCheck="false"
               />
+              </div>
 
-              <Form.Input
-                fluid
+              <div className="login-field">
+              <input
                 name="passwordConfirmation"
-                icon="repeat"
-                iconPosition="left"
                 placeholder="Password Confirmation"
                 onChange={this.handleChange}
                 value={passwordConfirmation}
                 className={this.handleInputError(errors, "password")}
                 type="password"
+                spellCheck="false"
               />
-
-              <Button
-                disabled={loading}
-                className={loading ? "loading" : ""}
-                color="orange"
-                fluid
-                size="large"
-              >
-                Submit
-              </Button>
-            </Segment>
-          </Form>
-          {errors.length > 0 && (
-            <Message error>
-              <h3>Error</h3>
-              {this.displayErrors(errors)}
-            </Message>
-          )}
-          <Message>
-            Already a user? <Link to="/login">Login</Link>
-          </Message>
-        </Grid.Column>
-      </Grid>
+              </div>
+              <MDBBtn
+                color="dark"
+                type="submit"
+                className="login-btn"
+                /*disabled={loading}
+                className={loading ? "loading" : "login-btn"}*/
+                >
+                Register
+              </MDBBtn>      
+            </form>
+            <p>Already a user? <Link to="/Login">Login</Link></p>
+            {errors.length > 0 && (
+              <div>
+                <h3 className="loginError">Oh no!</h3>
+                {this.displayErrors(errors)}
+              </div>
+            )}
+          </div>
+          <FooterPart/>
+      </div>
     );
   }
 }

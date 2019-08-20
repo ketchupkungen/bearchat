@@ -4,12 +4,13 @@ import "firebase/database";
 import "firebase/storage";
 
 var config = {
-  apiKey: "AIzaSyCREQMYIbAYKscrS_JYvWP4KpMsF_jI5Bg",
-  authDomain: "react-slack-clone.firebaseapp.com",
-  databaseURL: "https://react-slack-clone.firebaseio.com",
-  projectId: "react-slack-clone",
-  storageBucket: "react-slack-clone.appspot.com",
-  messagingSenderId: "423395756405"
+  apiKey: "AIzaSyCsOHr1Y2l35wSYt_Zg8vE7inO_9O30p1c",
+    authDomain: "bearchat-app.firebaseapp.com",
+    databaseURL: "https://bearchat-app.firebaseio.com",
+    projectId: "bearchat-app",
+    storageBucket: "bearchat-app.appspot.com",
+    messagingSenderId: "465344246644",
+    appId: "1:465344246644:web:4622decaba1f840b"
 };
 firebase.initializeApp(config);
 

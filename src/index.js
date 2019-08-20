@@ -8,6 +8,12 @@ import registerServiceWorker from "./registerServiceWorker";
 import firebase from "./firebase";
 
 import "semantic-ui-css/semantic.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+//import "mdbreact/dist/css/mdb.css";
+import "./css/scss/mdb.scss";
+//import "./css/Style.css";
+import "./css/scss/Style.scss";
 
 import {
   BrowserRouter as Router,
