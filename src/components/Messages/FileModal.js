@@ -6,7 +6,7 @@ import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalF
 class FileModal extends React.Component {
   state = {
     file: null,
-    authorized: ["image/jpeg", "image/png"],
+    authorized: ["image/jpeg", "image/png", "image/gif"],
     modal: false
   };
 
@@ -61,7 +61,7 @@ class FileModal extends React.Component {
           <MDBModalBody>
             <input
               onChange={this.addFile}
-              label="File types: jpg, png"
+              label="File types: jpg, png, gif"
               name="file"
               type="file"
             />
