@@ -61,4 +61,4 @@ typings/
 .next
 
 # firebase
-!firebase.js
+src/firebase.js
