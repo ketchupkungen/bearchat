@@ -2,7 +2,19 @@ import React from "react";
 import firebase from "../../firebase";
 import { connect } from "react-redux";
 import { setCurrentChannel, setPrivateChannel } from "../../actions";
-import { MDBBadge, MDBInputGroup,MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter, MDBInput, MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
+import { 
+  MDBBadge, 
+  MDBModal, 
+  MDBModalHeader, 
+  MDBModalBody, 
+  MDBModalFooter, 
+  MDBInput,  
+  MDBBtn,  
+  MDBCollapse, 
+  MDBCard, 
+  MDBCardBody, 
+  MDBCollapseHeader 
+} from "mdbreact";
 
 
 class Channels extends React.Component {
@@ -222,7 +234,7 @@ class Channels extends React.Component {
   }
 
   render() {
-    const { channels, modal, collapseID } = this.state;
+    const { channels, collapseID } = this.state;
 
     return (
       <React.Fragment>

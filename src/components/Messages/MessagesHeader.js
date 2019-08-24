@@ -7,22 +7,17 @@ import {
   MDBNavbarBrand, 
   MDBNavbarNav, 
   MDBNavItem, 
-  MDBNavLink, 
-  MDBNavbarToggler, 
+  MDBNavLink,
   MDBCollapse, 
   MDBFormInline,
   MDBDropdown, 
   MDBDropdownToggle, 
   MDBDropdownMenu, 
-  MDBDropdownItem, 
-  MDBBtn, 
+  MDBDropdownItem,
   MDBIcon, 
   MDBModal, 
   MDBModalBody, 
-  MDBModalHeader, 
-  MDBModalFooter, 
-  MDBInput, 
-  MDBCol
+  MDBModalHeader,
 } from "mdbreact";
 
 import MetaPanel from "../MetaPanel/MetaPanel";
@@ -52,7 +47,6 @@ class MessagesHeader extends React.Component {
       isPrivateChannel,
       handleStar,
       isChannelStarred,
-      currentUser, 
       currentChannel, 
       userPosts
     } = this.props;

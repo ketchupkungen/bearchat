@@ -111,7 +111,7 @@ class UserPanel extends React.Component {
   }
 
   render() {
-    const { user, modal, previewImage, croppedImage } = this.state;
+    const { user, previewImage, croppedImage } = this.state;
 
     return (
       <div>
@@ -120,7 +120,11 @@ class UserPanel extends React.Component {
         </div>
         <MDBDropdown>
           <MDBDropdownToggle className="user-toggle" caret color="dark">
-              <img className="sidebar-avatar" src={user.photoURL}/>
+              <img 
+                className="sidebar-avatar" 
+                src={user.photoURL}
+                alt="sidebar-avatar"
+              />
               {user.displayName}
           </MDBDropdownToggle>
           <MDBDropdownMenu basic className="user-toggle">
@@ -131,7 +135,10 @@ class UserPanel extends React.Component {
           </MDBDropdownMenu>
         </MDBDropdown>
 
-          <MDBModal className="form-dark avatar-modal" contentClassName="card card-image" isOpen={this.state.modal} toggle={this.toggle}>
+          <MDBModal 
+            className="form-dark avatar-modal"
+            isOpen={this.state.modal} 
+            toggle={this.toggle}>
             <MDBModalHeader toggle={this.toggle}>Upload and crop avatar</MDBModalHeader>
             <MDBModalBody>
             <div>
@@ -139,7 +146,7 @@ class UserPanel extends React.Component {
                 onChange={this.handleChange}
                 type="file"
                 label="New Avatar"
-                style={{ paddingBottom: "20px"}}
+                style={{ paddingBottom: "20px", width:'100%'}}
               />
             </div>
             <div>
@@ -163,6 +170,7 @@ class UserPanel extends React.Component {
                   width={100}
                   height={100}
                   src={croppedImage}
+                  alt="croppedImage"
                 />
               )}
             </div>

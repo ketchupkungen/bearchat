@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import SidePanel from "./SidePanel/SidePanel";
 import Messages from "./Messages/Messages";
-import MetaPanel from "./MetaPanel/MetaPanel";
 
 
 const App = ({ currentUser, currentChannel, isPrivateChannel, userPosts }) => (

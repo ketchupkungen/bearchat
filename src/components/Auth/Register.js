@@ -189,9 +189,8 @@ class Register extends React.Component {
                   <MDBBtn
                   color="dark"
                   type="submit" 
-                  className="login-btn"
-                  //disabled={loading}
-                  //className={loading ? "loading" : "login-btn"}
+                  className={loading ? "loading" : "login-btn"}
+                  disabled={loading}
                   >
                   Register
                 </MDBBtn> 

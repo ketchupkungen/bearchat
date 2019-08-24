@@ -144,9 +144,8 @@ class Login extends React.Component {
               <MDBBtn
                 color="dark"
                 type="submit"
-                className="login-btn"
-                /*disabled={loading}
-                className={loading ? "loading" : "login-btn"}*/
+                disabled={loading}
+                className={loading ? "loading" : "login-btn"}
                 >
                 Login
               </MDBBtn>      

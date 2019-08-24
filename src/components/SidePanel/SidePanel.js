@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import { BrowserRouter as Router } from "react-router-dom";
 import Transition from 'react-transition-group/Transition';
 import {
   MDBIcon, 
@@ -40,7 +38,6 @@ class SidePanel extends React.Component {
 
   render() {
     const { currentUser } = this.props;
-    const { collapseID } = this.state;
 
     return (
       <div>

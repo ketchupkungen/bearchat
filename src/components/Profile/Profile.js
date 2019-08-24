@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { MDBRow, MDBCol } from "mdbreact";
 
 
 

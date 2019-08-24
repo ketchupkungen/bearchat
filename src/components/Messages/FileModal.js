@@ -52,8 +52,6 @@ class FileModal extends React.Component {
   }
 
   render() {
-    const { modal, closeModal } = this.props;
-
     return (
       <span>
         <MDBBtn

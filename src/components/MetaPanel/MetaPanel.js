@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  MDBContainer, 
+import { 
   MDBCollapse, 
   MDBCard, 
   MDBCardBody, 
   MDBCollapseHeader, 
   MDBIcon,
   MDBListGroup, 
-  MDBListGroupItem
 
 } from "mdbreact";
 
@@ -33,8 +31,12 @@ class MetaPanel extends React.Component {
       .sort((a, b) => b[1] - a[1])
       .map(([key, val], i) => (
         <div style={{background:'none'}} key={i}>
-          <img className="message-avatar" src={val.avatar} />
-          <a className="message-author">{key}</a>
+          <img 
+            className="message-avatar" 
+            src={val.avatar}
+            alt="messageAvatar" 
+          />
+          <a href="#!" className="message-author">{key}</a>
           <div className="message-time">{this.formatCount(val.count)}</div>
         </div>
       ))
@@ -46,7 +48,7 @@ class MetaPanel extends React.Component {
   }));
 
   render() {
-    const { activeIndex, privateChannel, channel } = this.state;
+    const { privateChannel, channel } = this.state;
     const { userPosts } = this.props;
 
     if (privateChannel) return null;
@@ -111,8 +113,12 @@ class MetaPanel extends React.Component {
             </MDBCollapseHeader>
             <MDBCollapse id="collapse3" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-grey-light white-text">
-                  <img className="message-avatar" src={channel && channel.createdBy.avatar} />
-                  <a className="message-author">{channel && channel.createdBy.name}</a>
+                  <img 
+                    className="message-avatar" 
+                    src={channel && channel.createdBy.avatar}
+                    alt="messageAvatar" 
+                  />
+                  <a href="#!" className="message-author">{channel && channel.createdBy.name}</a>
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>

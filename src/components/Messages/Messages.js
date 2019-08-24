@@ -2,16 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { setUserPosts } from "../../actions";
 import firebase from "../../firebase";
-import { render } from 'react-dom';
-import { 
-  Link, 
-  DirectLink, 
-  Element, 
-  Events, 
-  animateScroll as scroll, 
-  scrollSpy, 
-  scroller 
-} from 'react-scroll'
 
 import MessagesHeader from "./MessagesHeader";
 import MessageForm from "./MessageForm";
@@ -284,7 +274,18 @@ class Messages extends React.Component {
 
 
   render() {
-    const { messagesRef, messages, channel, user, numUniqueUsers, searchTerm, searchResults, searchLoading, privateChannel, isChannelStarred, typingUsers, messagesLoading } = this.state;
+    const { 
+      messagesRef, 
+      messages, 
+      channel, 
+      user, 
+      numUniqueUsers, 
+      searchTerm, 
+      searchResults, 
+      privateChannel, 
+      isChannelStarred, 
+      typingUsers, 
+      messagesLoading } = this.state;
 
     return (
       <React.Fragment>
@@ -292,7 +293,6 @@ class Messages extends React.Component {
           channelName={this.displayChannelName(channel)}
           numUniqueUsers={numUniqueUsers}
           handleSearchChange={this.handleSearchChange}
-          //searchLoading={searchLoading}
           isPrivateChannel={privateChannel}
           handleStar={this.handleStar}
           isChannelStarred={isChannelStarred}
