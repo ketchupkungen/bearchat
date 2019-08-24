@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
+import Profile from "./components/Profile/Profile";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Spinner from "./Spinner";
@@ -50,6 +51,7 @@ class Root extends React.Component {
     ) : (
       <Switch>
         <Route exact path="/" component={App} />
+        <Route exact path="/Profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
       </Switch>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { MDBRow, MDBCol } from "mdbreact";
 

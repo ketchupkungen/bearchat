@@ -1,10 +1,28 @@
 import React from "react";
 import { BrowserRouter as Router } from 'react-router-dom';
 import { connect } from "react-redux";
-import { Header, Segment, Input, Icon } from "semantic-ui-react";
 import {
-MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBIcon, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBInput, MDBCol
+  MDBNav,
+  MDBNavbar, 
+  MDBNavbarBrand, 
+  MDBNavbarNav, 
+  MDBNavItem, 
+  MDBNavLink, 
+  MDBNavbarToggler, 
+  MDBCollapse, 
+  MDBFormInline,
+  MDBDropdown, 
+  MDBDropdownToggle, 
+  MDBDropdownMenu, 
+  MDBDropdownItem, 
+  MDBBtn, 
+  MDBIcon, 
+  MDBModal, 
+  MDBModalBody, 
+  MDBModalHeader, 
+  MDBModalFooter, 
+  MDBInput, 
+  MDBCol
 } from "mdbreact";
 
 import MetaPanel from "../MetaPanel/MetaPanel";
@@ -44,7 +62,6 @@ class MessagesHeader extends React.Component {
       <div>
       <Router>
         <MDBNavbar className="lobby-navbar" color="black" dark expand="md">
-          <MDBNavbarToggler onClick={this.toggleCollapse} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
             <MDBNavbarNav left>
               <MDBNavItem>
@@ -56,6 +73,7 @@ class MessagesHeader extends React.Component {
                         onClick={handleStar} 
                         className={isChannelStarred ? "fas fa-star" : "far fa-star"}
                         size="lg"
+                        style={{cursor:'pointer'}}
                       />
                     )}
                   </strong>
@@ -67,21 +85,9 @@ class MessagesHeader extends React.Component {
                 </MDBNavbarBrand>
               </MDBNavItem>
               <MDBNavItem>
-                <MDBNavLink onClick={this.toggle} className="waves-effect waves-light d-flex align-items-center" to="#!">i
+                <MDBNavLink onClick={this.toggle} className="waves-effect waves-light d-flex align-items-center" to="#!">
+                  <MDBIcon icon="info" />
                 </MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle nav caret>
-                    <span className="mr-2">Dropdown</span>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu>
-                    <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
               </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav right>
@@ -103,9 +109,52 @@ class MessagesHeader extends React.Component {
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
+
+        <MDBNav className="mobile-lobby-navbar" color="black">
+          <MDBNavItem>
+                <h5 className="white-text">
+                  {channelName}
+                  {!isPrivateChannel && (
+                    <i 
+                      onClick={handleStar} 
+                      className={isChannelStarred ? "fas fa-star" : "far fa-star"}
+                      size="lg"
+                    />
+                  )}
+                </h5>
+            </MDBNavItem>
+          <MDBNavItem>
+            <MDBDropdown>
+              <MDBDropdownToggle nav caret>
+                <span className="mr-2"></span>
+              </MDBDropdownToggle>
+              <MDBDropdownMenu>
+                <MDBDropdownItem>{numUniqueUsers}</MDBDropdownItem>
+                <MDBDropdownItem onClick={this.toggle} className="waves-effect waves-light d-flex align-items-center" to="#!">
+                    <p>Information</p>
+                </MDBDropdownItem>
+              </MDBDropdownMenu>
+            </MDBDropdown>
+          </MDBNavItem>
+          <MDBNavItem>
+              <MDBFormInline waves style={{float:'right'}}>
+                <div className="md-form my-0">
+                  <input
+                    loading={searchLoading}
+                    onChange={handleSearchChange} 
+                    className="form-control mr-sm-2" 
+                    type="text"
+                    name="searchTerm"
+                    placeholder="Search Messages" 
+                    aria-label="Search"
+                  />
+                </div>
+              </MDBFormInline>
+            </MDBNavItem>
+        </MDBNav>
       </Router>
-        <MDBModal className="form-dark" contentClassName="card card-image" isOpen={this.state.modal} toggle={this.toggle}>
-          <div className="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+
+        <MDBModal className="form-dark" isOpen={this.state.modal} toggle={this.toggle}>
           <MDBModalHeader toggle={this.toggle}>About {channelName}</MDBModalHeader>
           <MDBModalBody>
             <MetaPanel
@@ -115,7 +164,6 @@ class MessagesHeader extends React.Component {
               isPrivateChannel={isPrivateChannel}
             />
           </MDBModalBody>
-          </div>
         </MDBModal>
       </div>
     );

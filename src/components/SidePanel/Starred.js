@@ -70,11 +70,10 @@ class Starred extends React.Component {
         key={channel.id}
         onClick={() => this.changeChannel(channel)}
         name={channel.name}
-        style={{ opacity: 0.7 }}
         active={channel.id === this.state.activeChannel}
         className="sidebar-dropdown-item"
       >
-        # {channel.name}
+        #{channel.name}
       </MDBBtn>
     ));
 
@@ -88,19 +87,16 @@ class Starred extends React.Component {
 
 
     return (
-      /*<Menu.Menu className="menu">
-        <Menu.Item>
-          <span>
-            <Icon name="star" /> STARRED
-          </span>{" "}
-          ({starredChannels.length})
-        </Menu.Item>
-        {this.displayChannels(starredChannels)}
-      </Menu.Menu>*/
       <MDBCard className="sidebar-dropdown">
-        <MDBCollapseHeader onClick={this.toggleCollapse("collapse1")}>
+        <MDBCollapseHeader className="sidebar-category">
           Favorite Channels {" "} ({starredChannels.length})
-          <i className={ collapseID==="collapse1" ? "fa fa-angle-down rotate-icon" : "fa fa-angle-down" } />
+          <MDBBtn
+              onClick={this.toggleCollapse("collapse1")}
+              className="dropdown-arrow"
+              color="dark"
+            >
+              <i className={ collapseID==="collapse1" ? "fa fa-angle-down rotate-icon fa-2x" : "fa fa-angle-down fa-2x" } />
+            </MDBBtn>
         </MDBCollapseHeader>
         <MDBCollapse id="collapse1" isOpen={collapseID}>
           <MDBCardBody className="sidebar-dropdown-menu">
