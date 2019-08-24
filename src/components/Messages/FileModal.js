@@ -1,7 +1,12 @@
 import React from "react";
 import mime from "mime-types";
-import { Modal, Input, Button, Icon } from "semantic-ui-react";
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBFileInput } from 'mdbreact';
+import {
+  MDBBtn, 
+  MDBModal, 
+  MDBModalBody, 
+  MDBModalHeader, 
+  MDBModalFooter
+} from 'mdbreact';
 
 class FileModal extends React.Component {
   state = {

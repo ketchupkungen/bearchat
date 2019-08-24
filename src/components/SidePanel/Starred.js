@@ -2,8 +2,13 @@ import React from "react";
 import firebase from "../../firebase";
 import { connect } from "react-redux";
 import { setCurrentChannel, setPrivateChannel } from "../../actions";
-import { Menu, Icon } from "semantic-ui-react";
-import { MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
+import {
+  MDBCollapse,
+  MDBBtn,
+  MDBCard, 
+  MDBCardBody, 
+  MDBCollapseHeader 
+} from "mdbreact";
 
 
 class Starred extends React.Component {

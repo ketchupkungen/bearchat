@@ -1,14 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import SidePanel from "./SidePanel/SidePanel";
-import Messages from "./Messages/Messages";
-import MetaPanel from "./MetaPanel/MetaPanel";
+import { MDBRow, MDBCol } from "mdbreact";
 
 
-const App = ({ currentUser, currentChannel, isPrivateChannel, userPosts }) => (
-  <div className="lobby-background">
-      <SidePanel
+
+const Profile = ({ currentUser, currentChannel, isPrivateChannel, userPosts }) => (
+  <div className="profile-page">
+      {/*<SidePanel
         key={currentUser && currentUser.uid}
         currentUser={currentUser}
       />
@@ -18,7 +16,8 @@ const App = ({ currentUser, currentChannel, isPrivateChannel, userPosts }) => (
         currentChannel={currentChannel}
         currentUser={currentUser}
         isPrivateChannel={isPrivateChannel}
-      />
+      />*/}
+
   </div>
 );
 
@@ -29,4 +28,4 @@ const mapStateToProps = state => ({
   userPosts: state.channel.userPosts
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Profile);

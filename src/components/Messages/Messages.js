@@ -1,12 +1,17 @@
 import React from "react";
-import { Segment, Comment } from "semantic-ui-react";
-import { MDBRow, MDBCol } from "mdbreact";
 import { connect } from "react-redux";
 import { setUserPosts } from "../../actions";
 import firebase from "../../firebase";
-
 import { render } from 'react-dom';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { 
+  Link, 
+  DirectLink, 
+  Element, 
+  Events, 
+  animateScroll as scroll, 
+  scrollSpy, 
+  scroller 
+} from 'react-scroll'
 
 import MessagesHeader from "./MessagesHeader";
 import MessageForm from "./MessageForm";
@@ -254,17 +259,17 @@ class Messages extends React.Component {
   displayChannelName = channel => {
     return channel
       ? `${this.state.privateChannel ? "@" : "#"}${channel.name}`
-      : "";
+      : [];
   };
 
   displayTypingUsers = users =>
     users.length > 0 &&
     users.map(user => (
       <div
-        style={{ display: "flex", alignItems: "center", marginBottom: "0.2em" }}
+        className="user-typing"
         key={user.id}
       >
-        <span className="user__typing">{user.name} is typing</span> <Typing />
+        <span className="user-typing">{user.name} is typing...</span> <Typing />
       </div>
     ));
 

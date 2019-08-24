@@ -2,7 +2,14 @@ import React from "react";
 import firebase from "../../firebase";
 import { connect } from "react-redux";
 import { setCurrentChannel, setPrivateChannel } from "../../actions";
-import { MDBIcon,MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
+import { 
+  MDBIcon,
+  MDBBtn,
+  MDBCard, 
+  MDBCardBody, 
+  MDBCollapse, 
+  MDBCollapseHeader 
+} from "mdbreact";
 
 class DirectMessages extends React.Component {
   state = {

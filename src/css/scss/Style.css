@@ -6,9 +6,6 @@ body {
   background-repeat: no-repeat;
   background-size: auto 100%; }
 
-::-webkit-scrollbar {
-  display: none; }
-
 html, body {
   background: #222222 !important;
   min-height: 100% !important; }
@@ -26,8 +23,8 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #000 inset !important;
   transition: background 5000s ease-in-out 0s !important; }
 
-h2 {
-  text-align: center; }
+::-webkit-scrollbar {
+  display: none; }
 
 ul {
   list-style-type: none;
@@ -451,7 +448,15 @@ div.loginError {
 .sidebar-dropdown-item {
   display: block;
   width: 100%;
-  margin: 0 !important; }
+  padding: 10px 30px 10px 10px;
+  margin: 0 !important;
+  font-size: 12px;
+  text-align: left; }
+
+.channel-notifications {
+  float: right;
+  font-size: 13px;
+  box-shadow: 1px 1px 10px 0px black !important; }
 
 .desk-sidebar {
   z-index: 10 !important;
@@ -738,6 +743,13 @@ div.loginError {
 
 .user-offline {
   color: red; }
+
+.user-typing {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  color: green;
+  opacity: 0.8; }
 
 /*=============================
                         FOOTER

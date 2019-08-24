@@ -1,10 +1,11 @@
 import React from "react";
 import firebase from "../../firebase";
-/*import {
-  Form,
-  Card,
-} from "semantic-ui-react";*/
-import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact";
+import { 
+  MDBBtn, 
+  MDBCard, 
+  MDBCardBody 
+} from "mdbreact";
+
 import { Link } from "react-router-dom";
 
 import FooterPart from './FooterPart';

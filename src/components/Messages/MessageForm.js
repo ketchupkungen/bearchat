@@ -1,7 +1,8 @@
 import React from "react";
 import uuidv4 from "uuid/v4";
 import firebase from "../../firebase";
-import { MDBContainer, MDBBtnGroup, MDBBtn, MDBInput, MDBFileupload, MDBIcon,MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from "mdbreact";
+import { MDBBtn } from "mdbreact";
+
 import { Picker, emojiIndex } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
 

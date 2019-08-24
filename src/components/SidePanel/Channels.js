@@ -2,7 +2,7 @@ import React from "react";
 import firebase from "../../firebase";
 import { connect } from "react-redux";
 import { setCurrentChannel, setPrivateChannel } from "../../actions";
-import { MDBInputGroup,MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter, MDBInput, MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
+import { MDBBadge, MDBInputGroup,MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter, MDBInput, MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
 
 
 class Channels extends React.Component {
@@ -190,10 +190,16 @@ class Channels extends React.Component {
         active={channel.id === this.state.activeChannel}
         className="sidebar-dropdown-item"
       >
-        {this.getNotificationCount(channel) && (
-          <p style={{color:'green',background:'black'}}>{this.getNotificationCount(channel)}</p>
-        )}
         #{channel.name}
+        {this.getNotificationCount(channel) && (
+          <MDBBadge
+            className="channel-notifications"
+            color="success-color-dark"
+            pill
+          >
+            {this.getNotificationCount(channel)}
+          </MDBBadge>
+        )}
       </MDBBtn>
     ));
 

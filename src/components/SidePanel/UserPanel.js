@@ -2,8 +2,17 @@ import React from "react";
 import firebase from "../../firebase";
 import AvatarEditor from "react-avatar-editor";
 // prettier-ignore
-import { Grid, Header, Icon, Dropdown, Image, Modal, Input, Button } from "semantic-ui-react";
-import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from "mdbreact";
+import { 
+  MDBDropdown, 
+  MDBDropdownToggle, 
+  MDBDropdownMenu, 
+  MDBDropdownItem, 
+  MDBBtn, 
+  MDBModal, 
+  MDBModalBody, 
+  MDBModalHeader, 
+  MDBModalFooter 
+} from "mdbreact";
 
 class UserPanel extends React.Component {
   state = {

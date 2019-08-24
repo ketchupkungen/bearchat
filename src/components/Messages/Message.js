@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment";
-import { MDBRow, MDBCol } from "mdbreact"
 
 const isOwnMessage = (message, user) => {
   return message.user.id === user.uid ? "message-content" : "";

@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-//import { Menu } from "semantic-ui-react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Transition from 'react-transition-group/Transition';
-import { MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBSideNavLink, MDBIcon, MDBBtn, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
+import {
+  MDBIcon, 
+  MDBBtn, 
+  MDBContainer
+} from "mdbreact";
 
 import UserPanel from "./UserPanel";
 import Channels from "./Channels";
