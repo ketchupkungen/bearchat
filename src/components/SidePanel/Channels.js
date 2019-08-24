@@ -2,9 +2,7 @@ import React from "react";
 import firebase from "../../firebase";
 import { connect } from "react-redux";
 import { setCurrentChannel, setPrivateChannel } from "../../actions";
-// prettier-ignore
-import { Menu, Icon, Modal, Form, Input, Button, Label } from "semantic-ui-react";
-import { MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter, MDBInput, MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
+import { MDBInputGroup,MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter, MDBInput, MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
 
 
 class Channels extends React.Component {
@@ -189,12 +187,11 @@ class Channels extends React.Component {
         key={channel.id}
         onClick={() => this.changeChannel(channel)}
         name={channel.name}
-        style={{ opacity: 0.7 }}
         active={channel.id === this.state.activeChannel}
         className="sidebar-dropdown-item"
       >
         {this.getNotificationCount(channel) && (
-          <Label color="red">{this.getNotificationCount(channel)}</Label>
+          <p style={{color:'green',background:'black'}}>{this.getNotificationCount(channel)}</p>
         )}
         #{channel.name}
       </MDBBtn>
@@ -224,10 +221,22 @@ class Channels extends React.Component {
     return (
       <React.Fragment>
         <MDBCard className="sidebar-dropdown">
-          <MDBCollapseHeader onClick={this.toggleCollapse("collapse2")}>
+          <MDBCollapseHeader className="sidebar-category">            
             Channels {" "} ({channels.length})
-            <Icon name="add" onClick={this.openModal} />
-            <i className={ collapseID==="collapse2" ? "fa fa-angle-down rotate-icon" : "fa fa-angle-down" } />
+            <MDBBtn
+              className="add-channel"
+              onClick={this.openModal}
+              color="dark"
+            >
+              <i className="fas fa-plus fa-2x" />
+            </MDBBtn>
+            <MDBBtn
+              onClick={this.toggleCollapse("collapse2")}
+              className="dropdown-arrow"
+              color="dark"
+            >
+              <i className={ collapseID==="collapse2" ? "fa fa-angle-down rotate-icon fa-2x" : "fa fa-angle-down fa-2x" } />
+            </MDBBtn>
           </MDBCollapseHeader>
           <MDBCollapse id="collapse2" isOpen={collapseID}>
             <MDBCardBody className="sidebar-dropdown-menu">
@@ -240,32 +249,27 @@ class Channels extends React.Component {
           <MDBModalHeader toggle={this.toggle}>Create a channel</MDBModalHeader>
           <MDBModalBody>
             <form onSubmit={this.handleSubmit}>
-              <MDBInput
-                onChange={this.handleChange}
-                label="Name of channel"
-                icon="hashtag"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-
-              />
-              <MDBInput
-                onChange={this.handleChange}
-                label="About the channel"
-                icon="book"
-                group
-                type="text"
-                validate
-                error="wrong"
-                success="right"
-              />
+              <div>
+                <MDBInput
+                  icon="fas fa-book"
+                  label="Name of Channel"
+                  name="channelName"
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div>
+                <MDBInput
+                  icon="fas fa-book-open"
+                  label="About the Channel"
+                  name="channelDetails"
+                  onChange={this.handleChange}
+                />
+              </div>
             </form>
           </MDBModalBody>
           <MDBModalFooter>
-            <MDBBtn color="danger" onClick={this.toggle}>Cancel</MDBBtn>
-            <MDBBtn color="success" onClick={this.handleSubmit}>Send</MDBBtn>
+            <MDBBtn outline color="danger" onClick={this.toggle}>Cancel</MDBBtn>
+            <MDBBtn outline color="success" onClick={this.handleSubmit}>Create</MDBBtn>
           </MDBModalFooter>
         </MDBModal>
       </React.Fragment>

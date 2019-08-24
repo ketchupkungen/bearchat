@@ -1,12 +1,16 @@
 import React from "react";
 import mime from "mime-types";
 import { Modal, Input, Button, Icon } from "semantic-ui-react";
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBFileInput } from 'mdbreact';
 
 class FileModal extends React.Component {
   state = {
     file: null,
-    authorized: ["image/jpeg", "image/png", "image/gif"],
+    authorized: [
+    "image/jpeg", 
+    "image/png", 
+    "image/gif", 
+    "image/webp"],
     modal: false
   };
 
@@ -52,12 +56,11 @@ class FileModal extends React.Component {
           onClick={this.toggle}
           icon="cloud upload"
           className="message-button"
-          style={{}}
         >
           Upload
         </MDBBtn>
         <MDBModal className="form-dark" contentClassName="card card-image" isOpen={this.state.modal} toggle={this.toggle}>
-          <MDBModalHeader toggle={this.toggle}>Upload Image</MDBModalHeader>
+          <MDBModalHeader toggle={this.toggle}>Upload Image or gif</MDBModalHeader>
           <MDBModalBody>
             <input
               onChange={this.addFile}
@@ -67,8 +70,8 @@ class FileModal extends React.Component {
             />
           </MDBModalBody>
           <MDBModalFooter>
-            <MDBBtn color="danger" onClick={this.toggle}>Cancel</MDBBtn>
-            <MDBBtn color="success" onClick={this.sendFile}>Send</MDBBtn>
+            <MDBBtn outline color="danger" onClick={this.toggle}>Cancel</MDBBtn>
+            <MDBBtn outline color="success" onClick={this.sendFile}>Send</MDBBtn>
           </MDBModalFooter>
         </MDBModal>
       </span>

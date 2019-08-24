@@ -1,7 +1,6 @@
 import React from "react";
 import uuidv4 from "uuid/v4";
 import firebase from "../../firebase";
-import { Segment, Button, Input } from "semantic-ui-react";
 import { MDBContainer, MDBBtnGroup, MDBBtn, MDBInput, MDBFileupload, MDBIcon,MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from "mdbreact";
 import { Picker, emojiIndex } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
@@ -69,7 +68,9 @@ class MessageForm extends React.Component {
     const newMessage = this.colonToUnicode(` ${oldMessage} ${emoji.colons} `);
     this.setState({ message: newMessage, emojiPicker: false });
     setTimeout(() => this.messageInputRef.focus(), 0);
-  };
+  }
+
+
 
   colonToUnicode = message => {
     return message.replace(/:[A-Za-z0-9_+-]+:/g, x => {
@@ -212,12 +213,11 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    // prettier-ignore
     const { errors, message, loading, modal, uploadState, percentUploaded, emojiPicker } = this.state;
 
     return (
       <div className="message-form">
-          {emojiPicker && (
+        {emojiPicker && (
           <Picker
             set="apple"
             onSelect={this.handleAddEmoji}
@@ -232,12 +232,11 @@ class MessageForm extends React.Component {
         	id="emoji-btn"
           onClick={this.handleTogglePicker}
         >
-
-        {/*{emojiPicker ? "close" : "add"}*/}
-        {emojiPicker ? 
-	        <i className="emoji-close fas fa-times fa-3x"/> 
-	        : 
-	        <i className="emoji-open fas fa-laugh fa-3x"/>}
+          {emojiPicker ? 
+  	        <i className="emoji-close fas fa-times fa-3x"/> 
+  	        : 
+  	        <i className="emoji-open fas fa-laugh fa-3x"/>
+          }
         </MDBBtn>
         <div style={{marginLeft:'60px'}}>
         

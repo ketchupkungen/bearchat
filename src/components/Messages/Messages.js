@@ -279,7 +279,6 @@ class Messages extends React.Component {
 
 
   render() {
-    // prettier-ignore
     const { messagesRef, messages, channel, user, numUniqueUsers, searchTerm, searchResults, searchLoading, privateChannel, isChannelStarred, typingUsers, messagesLoading } = this.state;
 
     return (
