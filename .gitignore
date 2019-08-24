@@ -66,3 +66,11 @@ typings/
 
 # firebase
 src/firebase.js
+
+firebase.json
+
+storage.rules
+
+database.rules.json
+
+.firebaserc
