@@ -6,9 +6,6 @@ body {
   background-repeat: no-repeat;
   background-size: auto 100%; }
 
-::-webkit-scrollbar {
-  display: none; }
-
 html, body {
   background: #222222 !important;
   min-height: 100% !important; }
@@ -290,35 +287,21 @@ div.loginError {
     width: 50px; }
 
 /*=============================
-                    Profile page
-===============================*/
-.profile-page {
-  background: blue; }
-
-/*=============================
                         SIDEBAR
 ===============================*/
 .toggle-mobile-navbar {
   margin: 0;
   text-decoration: none;
   background: black !important;
-  height: 50px;
-  width: 50px;
+  position: fixed;
+  width: 10px;
   top: 0px;
   left: 0px;
-  z-index: 1;
-  box-shadow: 2px 2px 10px 1px black !important; }
-  .toggle-mobile-navbar i {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    height: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    color: white; }
-
-.toggle-mobile-navbar:active i {
-  color: green; }
+  z-index: 1; }
+  .toggle-mobile-navbar svg {
+    color: white;
+    width: 40px !important;
+    height: 40px !important; }
 
 .mobile-sidebar .sidebar-box p {
   color: white;
@@ -342,7 +325,7 @@ div.loginError {
   bottom: 0px;
   width: 250px;
   padding: 0px;
-  background-image: linear-gradient(to bottom left, #222222, #737373);
+  background: #2E2E2E;
   overflow-y: auto;
   overflow-x: hidden; }
 
@@ -388,58 +371,10 @@ div.loginError {
   transform: translateX(-100%); }
 
 .sidebar-dropdown {
-  box-shadow: none !important;
-  background: none;
+  background: #696969 !important;
   width: 250px;
   margin: 0 !important;
   padding: 0 !important; }
-  .sidebar-dropdown div.card-header i {
-    float: right; }
-  .sidebar-dropdown .add-channel {
-    box-shadow: none !important;
-    background: none !important;
-    height: 42px !important;
-    width: 43px;
-    top: 0 !important;
-    right: 40px;
-    float: right;
-    margin: 0;
-    position: absolute; }
-    .sidebar-dropdown .add-channel i {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      height: 50%;
-      transform: translate(-50%, -50%);
-      display: block; }
-    .sidebar-dropdown .add-channel i:active {
-      color: green; }
-  .sidebar-dropdown .dropdown-arrow {
-    box-shadow: none !important;
-    background: none !important;
-    height: 42px !important;
-    width: 10px;
-    top: 0 !important;
-    right: 0 !important;
-    float: right;
-    margin: 0;
-    position: absolute;
-    padding: 20px; }
-    .sidebar-dropdown .dropdown-arrow i {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      height: 50%;
-      transform: translate(-50%, -50%);
-      display: block; }
-    .sidebar-dropdown .dropdown-arrow i:active {
-      color: green; }
-
-.sidebar-category {
-  padding-right: 0;
-  cursor: context-menu !important; }
-  .sidebar-category h5 {
-    text-align: left; }
 
 .sidebar-dropdown-menu {
   width: 250px !important;
@@ -454,30 +389,22 @@ div.loginError {
   margin: 0 !important; }
 
 .desk-sidebar {
-  z-index: 10 !important;
+  opacity: 1;
+  z-index: 1;
   position: fixed !important;
   top: 0px;
   bottom: 0px;
   width: 250px !important;
-  background-image: linear-gradient(to bottom left, #2E2E2E, #4d4d4d);
+  background: #2E2E2E;
   overflow-y: auto;
-  overflow-x: hidden;
-  box-shadow: 1px 10px 20px 0px black !important; }
-
-.sidebar-avatar {
-  box-shadow: 5px 5px 10px 0px #111111 !important;
-  display: block;
-  width: 60px;
-  height: 60px;
-  border-radius: 50px;
-  float: left; }
+  overflow-x: hidden; }
 
 .btn-dark.dropdown-toggle.user-toggle {
   width: 250px !important;
   margin: 0 !important;
-  padding: 5px 5px 10px 10px;
+  padding: 5px;
   font-size: 12px;
-  background: none !important;
+  background: #2E2E2E !important;
   box-shadow: none !important;
   outline: none !important;
   border: none !important; }
@@ -499,24 +426,18 @@ div.loginError {
     border: none !important; }
   .dropdown-menu.user-toggle .dropdown-item:active {
     color: #388E3C;
+    background: #111111;
     outline: none !important;
     border: none !important; }
-  .dropdown-menu.user-toggle .dropdown-item:focus {
-    background: #2E2E2E; }
-
-.btn-dark:not([disabled]):not(.disabled):active,
-.btn-dark:not([disabled]):not(.disabled).active,
-.show > .btn-dark.dropdown-toggle {
-  background-color: #212121 !important; }
 
 /*=============================
              Informational modal
 ===============================*/
 .form-dark .modal-content {
-  background-color: rgba(51, 51, 51, 0.7);
+  background-color: rgba(51, 51, 51, 0.2);
+  padding: 10 !important;
   z-index: 1000 !important;
-  display: block !important;
-  margin: 0 auto; }
+  display: block !important; }
   .form-dark .modal-content .modal-body {
     padding: 0; }
   .form-dark .modal-content div, .form-dark .modal-content h3 {
@@ -546,75 +467,25 @@ div.loginError {
     border: none; }
 
 /*=============================
-             Change avatar
-===============================*/
-/*=============================
                         CHATLOBBY
 ===============================*/
 .lobby-navbar {
-  z-index: 1;
-  border-radius: 0px 0px 5px 5px;
-  position: fixed !important;
-  top: 0;
-  left: 250px;
-  right: 0; }
-  .lobby-navbar .dropdown-menu {
-    background: #333333; }
-  .lobby-navbar a {
-    margin-top: 3px; }
-
-.mobile-lobby-navbar {
   border-radius: 0px 0px 5px 5px;
   z-index: 1;
   box-shadow: 5px 5px 10px 1px #111111 !important;
   position: fixed !important;
   top: 0;
-  left: 58px;
-  height: 50px;
-  padding-left: 0;
+  left: 250px;
   right: 0; }
-  .mobile-lobby-navbar h5 {
-    position: relative;
-    top: 23px;
-    left: 19%;
-    transform: translate(-50%, -50%);
-    float: left; }
-  .mobile-lobby-navbar a.dropdown-toggle {
-    position: relative;
-    top: 23px;
-    left: 5%;
-    transform: translate(-50%, -50%);
-    float: left;
-    padding-left: 0;
-    padding-right: 0; }
-  .mobile-lobby-navbar input {
-    float: right; }
-  .mobile-lobby-navbar .md-form input[type=text],
-  .mobile-lobby-navbar .md-form input[type=password],
-  .mobile-lobby-navbar .md-form input[type=email],
-  .mobile-lobby-navbar .md-form input[type=url],
-  .mobile-lobby-navbar .md-form input[type=time],
-  .mobile-lobby-navbar .md-form input[type=date],
-  .mobile-lobby-navbar .md-form input[type=datetime-local],
-  .mobile-lobby-navbar .md-form input[type=tel],
-  .mobile-lobby-navbar .md-form input[type=number],
-  .mobile-lobby-navbar .md-form input[type=search-md],
-  .mobile-lobby-navbar .md-form input[type=search],
-  .mobile-lobby-navbar .md-form textarea.md-textarea {
-    width: 120px; }
-  .mobile-lobby-navbar .dropdown-menu {
-    background: #696969;
-    margin: 0;
-    padding: 0; }
-    .mobile-lobby-navbar .dropdown-menu .dropdown-item {
-      text-align: center; }
+  .lobby-navbar .dropdown-menu {
+    background: #222222; }
 
 .lobby-background {
   background: #222222;
   font-family: 'Exo 2', sans-serif !important; }
 
 .chat-modal {
-  background-image: linear-gradient(to right, #222222, #444444);
+  background: #222222;
   padding: 20px 20px 120px 20px;
   margin-left: 250px; }
 
@@ -733,12 +604,6 @@ div.loginError {
   .emoji-mart .emoji-mart-category-label span {
     background: #696969; }
 
-.user-online {
-  color: green; }
-
-.user-offline {
-  color: red; }
-
 /*=============================
                         FOOTER
 ===============================*/
@@ -777,24 +642,13 @@ div.loginError {
   .chat-modal {
     margin-left: 0px !important; }
   .toggle-mobile-navbar {
-    display: block;
-    position: fixed !important; }
+    display: block; }
   .form-dark .modal-content {
     width: 305px; }
   .message-form {
     left: 0px !important; }
   .form-dark .modal-content {
-    background-color: #222222; }
-  .mobile-lobby-navbar {
-    display: block; }
-  .avatar-modal-footer1 button {
-    margin: 20px 0px 0px 0px;
-    width: 50%; }
-  .avatar-modal-footer2 button {
-    margin: 10px 0px 0px 0px;
-    width: 100%; }
-  .avatar-modal-footer {
-    display: none; } }
+    background-color: #333333; } }
 
 /* DESK VIEW */
 @media only screen and (min-width: 800px) {
@@ -807,15 +661,4 @@ div.loginError {
   .toggle-mobile-navbar {
     display: none; }
   .message-form {
-    left: 250px !important; }
-  .mobile-lobby-navbar {
-    display: none; }
-  .avatar-modal-footer button {
-    margin-left: auto;
-    margin-right: auto; }
-  .avatar-modal-footer1 {
-    display: none; }
-  .avatar-modal-footer2 {
-    display: none; }
-  .form-dark {
-    top: 25%; } }
+    left: 250px !important; } }

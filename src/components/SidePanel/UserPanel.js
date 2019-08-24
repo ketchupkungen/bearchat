@@ -111,7 +111,7 @@ class UserPanel extends React.Component {
         </div>
         <MDBDropdown>
           <MDBDropdownToggle className="user-toggle" caret color="dark">
-              <img className="sidebar-avatar" src={user.photoURL}/>
+              <img className="message-avatar" src={user.photoURL}/>
               {user.displayName}
           </MDBDropdownToggle>
           <MDBDropdownMenu basic className="user-toggle">
@@ -121,72 +121,79 @@ class UserPanel extends React.Component {
             <MDBDropdownItem onClick={this.handleSignout}>Sign Out</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-
-          <MDBModal className="form-dark avatar-modal" contentClassName="card card-image" isOpen={this.state.modal} toggle={this.toggle}>
-            <MDBModalHeader toggle={this.toggle}>Upload and crop avatar</MDBModalHeader>
-            <MDBModalBody>
-            <div>
-              <input
+        {/*}
+          <Modal basic open={modal} onClose={this.closeModal}>
+            <Modal.Header>Change Avatar</Modal.Header>
+            <Modal.Content>
+              <Input
                 onChange={this.handleChange}
+                fluid
                 type="file"
                 label="New Avatar"
-                style={{ paddingBottom: "20px"}}
+                name="previewImage"
               />
-            </div>
-            <div>
-              {previewImage && (
-                <AvatarEditor
-                  ref={node => (this.avatarEditor = node)}
-                  image={previewImage}
-                  width={100}
-                  height={100}
-                  border={50}
-                  borderRadius={50}
-                  scale={2}
-                  style={{ display:'block', marginLeft: "auto", marginRight: "auto", borderRadius:'5px' }}
-                />
-              )}
-              </div>
-              <div>
+              <Grid centered stackable columns={2}>
+                <Grid.Row centered>
+                  <Grid.Column className="ui center aligned grid">
+                    {previewImage && (
+                      <AvatarEditor
+                        ref={node => (this.avatarEditor = node)}
+                        image={previewImage}
+                        width={120}
+                        height={120}
+                        border={50}
+                        scale={1.5}
+                      />
+                    )}
+                  </Grid.Column>
+                  <Grid.Column>
+                    {croppedImage && (
+                      <img
+                        style={{ margin: "3.5em auto" }}
+                        width={100}
+                        height={100}
+                        src={croppedImage}
+                      />
+                    )}
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Modal.Content>
+            <Modal.Actions>
               {croppedImage && (
-                <img
-                  style={{ display:'block', marginLeft: "auto", marginRight: "auto", borderRadius:'50px' }}
-                  width={100}
-                  height={100}
-                  src={croppedImage}
-                />
-              )}
-            </div>
-            </MDBModalBody>
-            <div className="avatar-modal-footer1">
-              <MDBBtn outline color="danger" onClick={this.toggle}>Cancel</MDBBtn>
-              <MDBBtn outline onClick={this.handleCropImage}>Preview</MDBBtn>
-            </div>
-            {croppedImage && (
-              <div className="avatar-modal-footer2">
-                <MDBBtn
-                  color="success"
+                <Button
+                  color="green"
+                  inverted
                   onClick={this.uploadCroppedImage}
                 >
-                  <i className="save" />Change avatar
-                </MDBBtn>
-              </div>
-            )}
+                  <Icon name="save" /> Change Avatar
+                </Button>
+              )}
+              <Button color="green" inverted onClick={this.handleCropImage}>
+                <Icon name="image" /> Preview
+              </Button>
+              <Button color="red" inverted onClick={this.closeModal}>
+                <Icon name="remove" /> Cancel
+              </Button>
+            </Modal.Actions>
+          </Modal>*/}
 
-            <MDBModalFooter className="avatar-modal-footer">
-              <MDBBtn outline color="danger" onClick={this.toggle}>Cancel</MDBBtn>
-              <MDBBtn outline onClick={this.handleCropImage}>Preview</MDBBtn>
-              {croppedImage && (
-                <MDBBtn
-                  outline
-                  color="success"
-                  onClick={this.uploadCroppedImage}
-                >
-                  <i className="save" />Change Avatar
-                </MDBBtn>
-              )}
+          <MDBModal className="form-dark" contentClassName="card card-image" isOpen={this.state.modal} toggle={this.toggle}>
+            <MDBModalHeader toggle={this.toggle}>Upload Image</MDBModalHeader>
+            <MDBModalBody>
+              <input
+                onChange={this.addFile}
+                label="File types: jpg, png"
+                name="file"
+                type="file"
+              />
+            </MDBModalBody>
+            <MDBModalFooter>
+              <MDBBtn color="danger" onClick={this.toggle}>Cancel</MDBBtn>
+              <MDBBtn color="success" onClick={this.sendFile}>Send</MDBBtn>
             </MDBModalFooter>
           </MDBModal>
+
       </div>
     );
   }

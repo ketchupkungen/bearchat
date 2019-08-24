@@ -1,22 +1,23 @@
 import React from "react";
 import {
-  MDBContainer, 
-  MDBCollapse, 
-  MDBCard, 
-  MDBCardBody, 
-  MDBCollapseHeader, 
-  MDBIcon,
-  MDBListGroup, 
-  MDBListGroupItem
+  Segment,
+  Accordion,
+  Header,
+  Icon,
+  Image,
+  List
+} from "semantic-ui-react";
 
+import {
+MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
+MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBIcon, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBInput, MDBCol
 } from "mdbreact";
 
 class MetaPanel extends React.Component {
   state = {
     channel: this.props.currentChannel,
     privateChannel: this.props.isPrivateChannel,
-    activeIndex: 0,
-    collapseID: "collapse1"
+    activeIndex: 0
   };
 
   setActiveIndex = (event, titleProps) => {
@@ -32,18 +33,15 @@ class MetaPanel extends React.Component {
     Object.entries(posts)
       .sort((a, b) => b[1] - a[1])
       .map(([key, val], i) => (
-        <div style={{background:'none'}} key={i}>
-          <img className="message-avatar" src={val.avatar} />
-          <a className="message-author">{key}</a>
-          <div className="message-time">{this.formatCount(val.count)}</div>
-        </div>
+        <List.Item key={i}>
+          <Image avatar src={val.avatar} />
+          <List.Content>
+            <List.Header as="a">{key}</List.Header>
+            <List.Description>{this.formatCount(val.count)}</List.Description>
+          </List.Content>
+        </List.Item>
       ))
       .slice(0, 2);
-
-  toggleCollapse = collapseID => () =>
-  this.setState(prevState => ({
-    collapseID: prevState.collapseID !== collapseID ? collapseID : ""
-  }));
 
   render() {
     const { activeIndex, privateChannel, channel } = this.state;
@@ -52,71 +50,51 @@ class MetaPanel extends React.Component {
     if (privateChannel) return null;
 
     return (
-      <div>
-          <MDBCard
-            style={{ backgroundColor: "rgba(0,0,0,.03)" }}
-            className="my-1"
+      <Segment loading={!channel}>
+        <Accordion styled attached="true">
+          <Accordion.Title
+            active={activeIndex === 0}
+            index={0}
+            onClick={this.setActiveIndex}
           >
-            <MDBCollapseHeader onClick={this.toggleCollapse("collapse1")}>
-              <span className="white-text">Channel Details</span>
-              <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse1"
-                    ? "angle-up"
-                    : "angle-down"
-                }
-                className="white-text"
-                style={{ float: "right" }}
-              />
-            </MDBCollapseHeader>
-            <MDBCollapse id="collapse1" isOpen={this.state.collapseID}>
-              <MDBCardBody className="rgba-grey-light white-text">
-                {channel && channel.details}
-              </MDBCardBody>
-            </MDBCollapse>
-          </MDBCard>
+            <Icon name="dropdown" />
+            <Icon name="info" />
+            Channel Details
+          </Accordion.Title>
+          <Accordion.Content active={activeIndex === 0}>
+            {channel && channel.details}
+          </Accordion.Content>
 
-          <MDBCard style={{ backgroundColor: "rgba(0,0,0,.03)" }}>
-            <MDBCollapseHeader onClick={this.toggleCollapse("collapse2")}>
-              <span className="white-text">Top Posters</span>
-              <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse2"
-                    ? "angle-up"
-                    : "angle-down"
-                }
-                className="white-text"
-                style={{ float: "right" }}
-              />
-            </MDBCollapseHeader>
-            <MDBCollapse id="collapse2" isOpen={this.state.collapseID}>
-              <MDBCardBody className="rgba-grey-light white-text">
-                <MDBListGroup>{userPosts && this.displayTopPosters(userPosts)}</MDBListGroup>
-              </MDBCardBody>
-            </MDBCollapse>
-          </MDBCard>
+          <Accordion.Title
+            active={activeIndex === 1}
+            index={1}
+            onClick={this.setActiveIndex}
+          >
+            <Icon name="dropdown" />
+            <Icon name="user circle" />
+            Top Posters
+          </Accordion.Title>
+          <Accordion.Content active={activeIndex === 1}>
+            <List>{userPosts && this.displayTopPosters(userPosts)}</List>
+          </Accordion.Content>
 
-          <MDBCard style={{ backgroundColor: "rgba(0,0,0,.03)" }}>
-            <MDBCollapseHeader onClick={this.toggleCollapse("collapse3")}>
-              <span className="white-text">Created By</span>
-              <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse3"
-                    ? "angle-up"
-                    : "angle-down"
-                }
-                className="white-text"
-                style={{ float: "right" }}
-              />
-            </MDBCollapseHeader>
-            <MDBCollapse id="collapse3" isOpen={this.state.collapseID}>
-              <MDBCardBody className="rgba-grey-light white-text">
-                  <img className="message-avatar" src={channel && channel.createdBy.avatar} />
-                  <a className="message-author">{channel && channel.createdBy.name}</a>
-              </MDBCardBody>
-            </MDBCollapse>
-          </MDBCard>
-      </div>
+          <Accordion.Title
+            active={activeIndex === 2}
+            index={2}
+            onClick={this.setActiveIndex}
+          >
+            <Icon name="dropdown" />
+            <Icon name="pencil alternate" />
+            Created By
+          </Accordion.Title>
+          <Accordion.Content active={activeIndex === 2}>
+            <Header as="h3">
+              <Image circular src={channel && channel.createdBy.avatar} />
+              {channel && channel.createdBy.name}
+            </Header>
+          </Accordion.Content>
+        </Accordion>
+      </Segment>
     );
   }
 }

@@ -2,7 +2,8 @@ import React from "react";
 import firebase from "../../firebase";
 import { connect } from "react-redux";
 import { setCurrentChannel, setPrivateChannel } from "../../actions";
-import { MDBIcon,MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
+import { Menu, Icon } from "semantic-ui-react";
+import { MDBDropdown, MDBBtn, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
 
 class DirectMessages extends React.Component {
   state = {
@@ -112,15 +113,9 @@ class DirectMessages extends React.Component {
 
     return (
       <MDBCard className="sidebar-dropdown">
-        <MDBCollapseHeader className="sidebar-category">
+        <MDBCollapseHeader onClick={this.toggleCollapse("collapse3")}>
           Private message {" "} ({users.length})
-          <MDBBtn
-            onClick={this.toggleCollapse("collapse3")}
-            className="dropdown-arrow"
-            color="dark"
-          >
-            <i className={ collapseID==="collapse3" ? "fa fa-angle-down rotate-icon fa-2x" : "fa fa-angle-down fa-2x" } />
-          </MDBBtn>
+          <i className={ collapseID==="collapse3" ? "fa fa-angle-down rotate-icon" : "fa fa-angle-down" } />
         </MDBCollapseHeader>
         <MDBCollapse id="collapse3" isOpen={collapseID}>
           <MDBCardBody className="sidebar-dropdown-menu">
@@ -133,11 +128,11 @@ class DirectMessages extends React.Component {
             style={{ opacity: 0.7, fontStyle: "italic" }}
             className="sidebar-dropdown-item"
           >
-            <MDBIcon 
-              icon="power-off"
-              className={this.isUserOnline(user) ? "user-online" : "user-offline"}
-             />
-            {user.name}
+            <Icon
+              name="circle"
+              color={this.isUserOnline(user) ? "green" : "red"}
+            />
+            @ {user.name}
           </MDBBtn>
           ))}
           </MDBCardBody>

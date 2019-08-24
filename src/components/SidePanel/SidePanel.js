@@ -41,9 +41,12 @@ class SidePanel extends React.Component {
 
     return (
       <div>
+  
+
         <MDBBtn color="dark" onClick={this.toggleSidebar} className="toggle-mobile-navbar">
-          <MDBIcon icon="bars" size="3x"/>
+          <i className="fa fa-bars"></i>
         </MDBBtn>
+        1
         <div className="mobile-sidebar">
           <Transition
             in={this.state.show}
