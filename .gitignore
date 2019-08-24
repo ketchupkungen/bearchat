@@ -74,3 +74,5 @@ storage.rules
 database.rules.json
 
 .firebaserc
+
+firebase.js
