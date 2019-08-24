@@ -31,30 +31,30 @@ Enjoy :)
 ------------------
 
 ### Packages and libraries used
--emoji-mart
--firebase
--md5
--mdbreact
--mime-types
--moment
--node-sass-chokidar
--npm-run-all
--react
--react-avatar-editor
--react-dom
--react-fontawesome
--react-fullscreen-image
--react-keydown
--react-materialize
--react-redux
--react-router-dom
--react-scripts
--react-transition-group
--redux
--redux-devtools-extension
--semantic-ui-css
--semantic-ui-react
--uuid
+- emoji-mart
+- firebase
+- md5
+- mdbreact
+- mime-types
+- moment
+- node-sass-chokidar
+- npm-run-all
+- react
+- react-avatar-editor
+- react-dom
+- react-fontawesome
+- react-fullscreen-image
+- react-keydown
+- react-materialize
+- react-redux
+- react-router-dom
+- react-scripts
+- react-transition-group
+- redux
+- redux-devtools-extension
+- semantic-ui-css
+- semantic-ui-react
+- uuid
 
 ### Author & Contributor list
 Björn Ohlsson
